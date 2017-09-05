@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>设备租赁</title>
+    <link href="$rc.contextPath/common/css/basic.css" rel="stylesheet">
+    <link href="$rc.contextPath/css/index.css" rel="stylesheet">
+</head>
+<body>
+<div class="top">
+    <img src="$rc.contextPath/images/logoIn.png" alt="" class="logo_contain">
+    <div class="user_box">
+        <div class="user_login">
+            <div class="head icon"></div>
+            <span>您好：$shiro.getPrincipal()！</span>
+        </div>
+        <div class="changePassword">
+            <div class="change_img  icon" title="修改密码"></div>
+        </div>
+        <div class="log_off">
+            <a href="$rc.contextPath/logout">
+                <div class="log_img icon" title="退出登陆"></div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="left_menu">
+        #if($shiro.hasPermission("HOME_PAGE:SELECT"))
+            <div class="tab_li" id="index_page">
+                <div class="icon icon_img home"></div>
+                <span>我的首页</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("FINANCE_MANAGE:SELECT"))
+            <div class="tab_li">
+                <div class="icon icon_img equip_sale"></div>
+                <span>财务管理</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("MANUFAC_MANAGE:SELECT"))
+            <div class="tab_li" id="vendorManage">
+                <div class="icon icon_img vendor_manage"></div>
+                <span>厂商管理</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("EQUIP_CLASSIFICATION:SELECT"))
+            <div class="tab_li" id="equipType">
+                <div class="icon icon_img equip_type"></div>
+                <span>设备分类</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("INVENTORY_MANAGE:SELECT"))
+            <div class="tab_box">
+                <div class="tab_li no-triggle">
+                    <div class="icon icon_img equip_manage"></div>
+                    <span>库存管理</span>
+                    <div class="drop icon"></div>
+                </div>
+                <ul class="dorpmenu">
+                    <li id="checkLibrary" class="active_dropli"><span class="icon home"></span>登记入库</li>
+                    <li id="libraryList"><span class="icon home"></span>查看入库</li>
+                </ul>
+            </div>
+        #end
+        #if($shiro.hasPermission("USER_MANAGE:SELECT"))
+            <div class="tab_li" id="userManage">
+                <div class="icon icon_img user_manage"></div>
+                <span>用户管理</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("SET_PACKAGE:SELECT"))
+            <div class="tab_li" id="meal">
+                <div class="icon icon_img super_icon"></div>
+                <span>配置套餐</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("EQUIP_ASSIGN:SELECT"))
+            <div class="tab_box">
+                <div class="tab_li no-triggle">
+                    <div class="icon icon_img equip_allot"></div>
+                    <span>设备分派</span>
+                    <div class="drop icon"></div>
+                </div>
+                <ul class="dorpmenu">
+                    <li id="equipAllot" class="active_dropli"><span class="icon home"></span>设备分派</li>
+                    <li id="equipAllotRecord"><span class="icon home"></span>设备分派记录</li>
+                    <li id="equipRecycling"><span class="icon home"></span>设备回收</li>
+                    <li id="equipRecyclingRecord"><span class="icon home"></span>设备回收记录</li>
+                </ul>
+            </div>
+        #end
+        #if($shiro.hasPermission("EQUIP_REPAIR:SELECT"))
+            <div class="tab_li">
+                <div class="icon icon_img equip_service"></div>
+                <span>设备维修</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("EQUIP_RENTAL:SELECT"))
+            <div class="tab_box">
+                <div class="tab_li no-triggle">
+                    <div class="icon icon_img equip_rental"></div>
+                    <span>设备租售</span>
+                    <div class="drop icon"></div>
+                </div>
+                <ul class="dorpmenu">
+                    <li id="equipSale" class="active_dropli"><span class="icon home"></span>租售单列表</li>
+                    <li id="equipRecord"><span class="icon home"></span>设备租售记录</li>
+                    <li id="equipmentRecycling"><span class="icon home"></span>设备回收</li>
+                </ul>
+            </div>
+        #end
+        #if($shiro.hasPermission("EQUIP_SELECT:SELECT"))
+            <div class="tab_li" id="equipLook">
+                <div class="icon icon_img equip_look"></div>
+                <span>设备查看</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("SET_ADMIN:SELECT"))
+            <div class="tab_li" id="setSuper">
+                <div class="icon icon_img super_icon"></div>
+                <span>设置超管</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("SELECT_PACKAGE:SELECT"))
+            <div class="tab_li" id="examMeal">
+                <div class="icon icon_img equip_sale"></div>
+                <span>查看套餐</span>
+            </div>
+        #end
+        #if($shiro.hasPermission("ACCOUNT_CENTER:SELECT"))
+            <div class="tab_li" id="accountCenter">
+                <div class="icon icon_img account_icon"></div>
+                <span>账号中心</span>
+            </div>
+        #end
+    </div>
+    <div class="main">
+        <div class="main_in">
+        ##           iframe id不可改
+            <iframe id="mainFrame" width="100%" height="100%" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" src=""></iframe>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="$rc.contextPath/common/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="$rc.contextPath/common/nicescroll/jquery.nicescroll.min.js"></script>
+<script type="text/javascript" src="$rc.contextPath/common/artdialog/artDialog.source.js?skin=white"></script>
+<script type="text/javascript" src="$rc.contextPath/common/artdialog/iframeTools.source.js"></script>
+<script type="text/javascript" src="$rc.contextPath/js/index.js"></script>
+</body>
+</html>
+

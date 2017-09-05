@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- user start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.user.UserService"  id="userService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.user.UserPermService" id="userPermService" timeout="10000" check="false"/>
+	<!--- user end -->
+
+	<!-- dict start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.dict.DictService" id="dictService" timeout="10000" check="false"/>
+	<dubbo:reference interface="cn.joinhealth.hug.model.api.dict.DictHospService" id="dictHospService" timeout="10000" check="false"/>
+	<dubbo:reference interface="cn.joinhealth.hug.model.api.dict.DictDeptService" id="dictDeptService" timeout="10000" check="false"/>
+	<dubbo:reference interface="cn.joinhealth.hug.model.api.dict.DictStaffService" id="dictStaffService" timeout="10000" check="false"/>
+	<!-- dict end -->
+
+	<!-- manufac start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.manufac.ManufacturerService" id="manufacturerService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.facade.manufac.ManufacturerFacade" id="manufacturerFacade" timeout="10000" check="false"/>
+	<!-- manufac end -->
+
+	<!-- equip  start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.equip.EquipService" id="equipService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.equip.EquipTypeService" id="equipTypeService" timeout="10000" check="false"/>
+	<!-- equip  end -->
+
+	<!-- inventory  start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.inventory.InsheetService" id="insheetService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.inventory.InventoryService" id="inventoryService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.facade.inventory.InventoryFacade" id="inventoryFacade" timeout="10000" check="false"/>
+	<!-- inventory  end -->
+
+	<!-- meal  start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.facade.meal.MealFacade" id="mealFacade" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.meal.MealDeptService" id="mealDeptService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.meal.MealService" id="mealService" timeout="10000" check="false"/>
+	<!-- meal  end -->
+
+	<!-- rental start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.facade.rental.RentalFacade" id="rentalFacade" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.rental.RentalService" id="rentalService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.rental.RentalMealService" id="rentalMealService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.rental.RentalEquipService" id="rentalEquipService" timeout="10000" check="false"/>
+	<!-- rental end -->
+
+	<!-- resource  start -->
+	<dubbo:reference interface="cn.joinhealth.hug.model.api.resource.ResourceService" id="resourceService" timeout="10000" check="false"/>
+	<!-- resource  end -->
+
+	<!-- assign  start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.assign.AssignService" id="assignService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.facade.assign.AssignFacade" id="assignFacade" timeout="10000" check="false"/>
+	<!-- assign  end -->
+
+	<!-- homepage  start -->
+	<dubbo:reference interface="com.lanniuh.rental.module.api.service.homepage.HomepageService" id="homepageService" timeout="10000" check="false"/>
+	<dubbo:reference interface="com.lanniuh.rental.module.api.facade.homepage.HomepageFacade" id="homepageFacade" timeout="10000" check="false"/>
+	<!-- homepage  end -->
+</beans>
